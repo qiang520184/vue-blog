@@ -5,18 +5,13 @@ import VueLazyload from 'vue-lazyload';
 import vueHljs from 'vue-hljs';
 import 'highlight.js/styles/github.css';
  
-Vue.use(VueLazyload);
-
 Vue.use(Element, {locale});
 Vue.use(vueHljs);
 Vue.use(VueLazyload,
     {
         preLoad: 1.3,
-        error: 'assets/404.png',
-        loading: 'assets/loading.gif',
+        error: '/404.png',
+        loading: '/404.png',
         attempt: 1
     }
 );
-// vueHljs
-
-

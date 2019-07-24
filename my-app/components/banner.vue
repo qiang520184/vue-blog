@@ -1,34 +1,40 @@
 <template>
     <figure class="figure">
-        <template v-if="data && data.length">
-            <div slot="swiper" class="swiper">
-                <img v-for="(item, index) in data" :src="item.img" :key="index" alt="">
-                <img :src="data[0].img" key="img1" alt="">
+        <div class="swiper" slot="swiper" :style="{backgroundImage: 'url('+background+')'}">
+        </div>
+        <div class="mask" slot="mask">
+            <div class="focusInfo-top">
+                <a href="/" >
+                    <img v-lazy="`${info.cdn}${info.logo}`">
+                </a>
             </div>
-        </template>
-        <template>
-            <div slot="mask" class="mask">
-                <div class="focusInfo">
-                    <div class="header-tou">
-                        <a href="/">
-                            <img v-lazy="`${info.cdn}${info.logo}`">
-                        </a>
-                    </div>
-                    <div class="header-info">
-                        <p>Live your life with passion! With some drive!</p>
-                        <div class="top-social_v2">
-                        <!-- <li id="bg-pre">
-                            <img class="flipx" src="https://cdn.jsdelivr.net/gh/qiang520184/cdn@1.3.2/img/other/next-b.svg">
-                        </li> -->
-                        </div>
-                    </div>
-                </div>
+            <div class="focusInfo">
+                <p>Live your life with passion! With some drive!</p>
+                <ul class="focusInfo-list"> 
+                    <li 
+                        v-for="(item, index) in focusInfoIcon" 
+                        :key="index" 
+                        :class="{'focusInfo-list-item-left': index === 0}"
+                        @click="focusInfoList(item)"
+                    >
+                        
+                        <template v-if="item.type ==='hover'">
+                            <img v-lazy="item.img" class="hoverImg" :alt="info.imgAlt">
+                            <div class="focusInfo-list-hover-img">
+                                <img v-lazy="item.hoverImg" :alt="info.imgAlt">
+                            </div>
+                        </template>
+                        <template v-else>
+                            <img v-lazy="item.img" :alt="info.imgAlt">
+                        </template>
+                    </li>
+                </ul>
             </div>
-        </template>
+        </div>
     </figure>
 </template>
 <script>
-import {defaultInfo} from 'config/index';
+import {defaultInfo, FocusInfoIcon} from 'config/index';
 export default {
     name: 'banner',
     props: {
@@ -43,24 +49,85 @@ export default {
     },
     data() {
         return {
-            info: {...defaultInfo}
+            info: {...defaultInfo},
+            num: 1
         };
+    },
+    computed: {
+        focusInfoIcon() {
+            let left = {
+                img: `${defaultInfo.cdn}/img/other/next-b.svg`
+            };
+            return FocusInfoIcon;
+        },
+        background() {
+            return `${defaultInfo.cdn}/images/cover/${this.num}.jpg`;
+        }
+    },
+    methods: {
+        focusInfoList(item) {
+            switch (item.type) {
+                case '_blank':
+                    window.open(item.path);
+                    break;
+                case 'left':
+                    this.num -= 1;
+                    if (this.num < 0) {
+                        this.num = this.data.length;
+                    }
+                    break;
+                case 'right':
+                    this.num += 1;
+                    if (this.num > this.data.length) {
+                        this.num = 0;
+                    }
+                    break;
+                default:
+                    break;
+            }
+        }
     }
 };
 </script>
 <style lang='less'>
+@keyframes hoverImg {
+    from {
+        opacity: 0;
+    }
+    to {
+        transform: translateY(-60px);
+        opacity: 1;
+    }
+}
+
 .figure {
     position: relative;
     width: 100%;
     height: 100%;
     .swiper {
-        display: flex;
-        overflow-x: auto;
-        img {
+        width: 100%;
+        height: 100%;
+        background-size: cover;
+        ul {
             width: 100%;
             height: 100%;
-            display: block;  
+            li {
+                width: 100px;
+                height: 100px;
+                border: 1px solid red;
+            }
         }
+    }
+    .mask:after {
+        content: '\f078';
+        position: absolute;
+        top: 190%;
+        left: 50%;
+        width: 30px;
+        color: #fff;
+        font: normal normal normal 14px/1 FontAwesome;
+        font-size: inherit;
+        transform: scale(1.5,1);
     }
     .mask {
         position: absolute;
@@ -69,10 +136,88 @@ export default {
         bottom: 0;
         left: 0;
         margin: 0 auto;
-        border: 1px solid #f60;
         width: 700px;
-        height: 400px;
-
+        height: 300px;
+        .focusInfo-top {
+            height: 150px;
+            display: flex;
+            justify-content: center;
+            a {
+                display: flex;
+                width: 120px;
+                height: 120px;
+                img {
+                    display: flex;
+                    width: 100%;
+                    height: 100%;
+                }
+            }
+        }
+        .focusInfo {
+            height: 100px;
+            font-size: 16px;
+            background: rgba(0, 0, 0, .5);
+            border-radius: 25px;
+            p {
+                height: 50px;
+                line-height: 50px;
+                text-align: center;
+                font-weight: 700;
+                font-family: 'Ubuntu',sans-serif;
+                color: #eaeadf;
+            }
+            &-list {
+                height: 40px;
+                margin: 0 auto;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                &-item-left {
+                    transform: rotateZ(180deg)
+                }
+                li {
+                    position: relative;
+                    width: 50px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    img {
+                        display: flex;
+                        width: 30px;
+                        height: 30px;
+                    }
+                    .hoverImg:hover+.focusInfo-list-hover-img {
+                        animation: hoverImg 1s;
+                        animation-fill-mode: forwards;
+                    }
+                    .focusInfo-list-hover-img {
+                        position: absolute;
+                        top: 120px;
+                        left: calc(50% - 50px);
+                        width: 80px;
+                        height: 80px;
+                        padding: 10px;
+                        background: rgba(0,0,0,.4);
+                        border-radius: 10px;
+                        opacity: 0;
+                        img {
+                            display: flex;
+                            width: 100%;
+                            height: 100%;
+                        }
+                    }
+                    .focusInfo-list-hover-img:after {
+                        content: '';
+                        position: absolute;
+                        top: -30px;
+                        left: calc(50% - 15px);
+                        border-width: 15px;
+                        border-style: solid;
+                        border-color: transparent transparent rgba(0,0,0,.4) transparent;
+                    }
+                }
+            }
+        }
     }
 }
 </style>

@@ -50,9 +50,9 @@ export default {
                 __dirname,
                 'config'
             );
-            config.resolve.alias['assets'] = path.resolve(
+            config.resolve.alias['static'] = path.resolve(
                 __dirname,
-                'assets'
+                'static'
             );
             config.devtool = 'source-map';
         }

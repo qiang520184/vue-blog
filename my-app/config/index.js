@@ -1,8 +1,9 @@
 // index.config
 // cdn基路径
 const WWW = 'https://www.fudaqiang.com';
-const CDN = 'https://cdn.jsdelivr.net/gh/qiang520184/cdn@1.4.5';
+const CDN = 'https://cdn.jsdelivr.net/gh/qiang520184/cdn@1.5';
 const Logo = '/images/rooon.gif';
+const ImgAlt = '付大强';
 //
 export const Logolink = [
     {
@@ -15,22 +16,22 @@ export const Logolink = [
 // 首页轮播图
 export const Banner = [
     {
-        img: `${CDN}/images/cover/(1).jpg`
+        img: `${CDN}/images/cover/1.jpg`
     },
     {
-        img: `${CDN}/images/cover/(2).jpg`
+        img: `${CDN}/images/cover/2.jpg`
     },
     {
-        img: `${CDN}/images/cover/(3).jpg`
+        img: `${CDN}/images/cover/3.jpg`
     },
     {
-        img: `${CDN}/images/cover/(4).jpg`
+        img: `${CDN}/images/cover/4.jpg`
     },
     {
-        img: `${CDN}/images/cover/(5).jpg`
+        img: `${CDN}/images/cover/5.jpg`
     },
     {
-        img: `${CDN}/images/cover/(6).jpg`
+        img: `${CDN}/images/cover/6.jpg`
     }
 ];
 export const FocusInfo = [
@@ -43,10 +44,52 @@ export const FocusInfo = [
         txt: '充满激情地生活！开着车！'
     }
 ];
-
+export const FocusInfoIcon = [
+    {
+        img: `${CDN}/img/other/next-b.svg`,
+        text: 'left',
+        type: 'left'
+    },
+    {
+        img: `${CDN}/img/social/github.png`,
+        path: 'https://github.com/qiang520184',
+        text: 'github',
+        type: '_blank'
+    },
+    {
+        img: `${CDN}/img/social/email.svg`,
+        path: 'mailto:199513521@qq.com',
+        text: 'email',
+        type: '_blank'
+    },
+    {
+        img: `${CDN}/img/social/sina.png`,
+        path: 'https://weibo.com/xq520184',
+        text: 'sina',
+        type: '_blank'
+    },
+    {
+        img: `${CDN}/img/social/wangyiyun.png`,
+        path: 'https://music.163.com/#/playlist?id=2523258784',
+        text: 'wangyiyun',
+        type: '_blank'
+    },
+    {
+        img: `${CDN}/img/social/wechat.png`,
+        text: 'weixin',
+        type: 'hover',
+        hoverImg: `${CDN}/img/custom/donate/wxgzh.jpg`
+    },
+    {
+        img: `${CDN}/img/other/next-b.svg`,
+        text: 'right',
+        type: 'right'
+    }
+];
 // 基本信息
 export const defaultInfo = {
     cdn: CDN,
     logo: Logo,
-    www: WWW
+    www: WWW,
+    imgAlt: ImgAlt
 };

@@ -77,6 +77,7 @@ export default {
 }
 .input {
     flex: 1;
+    flex-shrink: 0;
     outline: 0;
     border: 0;
     border-radius: 4px 0 0 4px;
@@ -85,6 +86,7 @@ export default {
     border-right: 0;
 }
 .input-button {
+    flex-shrink: 0;
     width: auto;
     height: 100%;
     padding: 0 6px;

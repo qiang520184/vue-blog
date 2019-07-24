@@ -19,7 +19,7 @@
                 </div>
             </div>
         </header>
-        <nuxt-child/>
+        <nuxt/>
     </div> 
 </template>
 <script>
@@ -68,8 +68,9 @@ body {
     cursor: url(https://cdn.jsdelivr.net/gh/Tomotoes/images/blog/default.cur),default;
 }
 a {
-    cursor:url(https://cdn.jsdelivr.net/gh/Tomotoes/images/blog/pointer.cur),auto
+    cursor: url(https://cdn.jsdelivr.net/gh/Tomotoes/images/blog/pointer.cur),auto;
 }
+
 .header {
     position: absolute;
     top: 0;
@@ -80,9 +81,9 @@ a {
     align-items: center;
     justify-content: space-between;
     z-index: 9;
-    .header-left {
+    &-left {
         flex: 2;
-        min-width: 200px;
+        min-width: 150px;
         height: 100%;
         display: flex;
         align-items: center;
@@ -99,31 +100,28 @@ a {
             }
         }
     }
-    .header-content {
-        flex: 9;
+    &-content {
+        flex: 6;
         min-width: 900px;
         height: 100%;
         margin: 0 auto;
     }
-    .header-right {
+    &-right {
         flex: 2;
-        min-width: 200px;
+        flex-shrink: 0;
+        min-width: 150px;
         height: 100%;
         position: relative;
         display: flex;
         align-items: center;
-        .header-right-search {
-            width: auto;
+        justify-content: flex-end;
+        &-search {
+            padding: 0 40px;
+            width: 100%;
             height: 32px;
             display: flex;
             align-items: center;
-            position: absolute;
-            right: 23px;
-        }
-        &>.el-icon-search {
-            position: absolute;
-            right: 30px;
-            cursor: pointer;
+
         }
         &>.el-icon-search:hover {
             color: #E6A23C;
