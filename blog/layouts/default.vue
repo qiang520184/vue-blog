@@ -19,7 +19,11 @@
                 </div>
             </div>
         </header>
-        <nuxt/>
+        <nuxt class="nuxt"/>
+        <footer class="footer">
+            <p class="year">© 2018</p>
+            <p class="copyright">Theme Sakura  by Mashiro&qiang, Powered by Hexo, Hosted by Coding Pages</p>
+        </footer>
     </div> 
 </template>
 <script>
@@ -59,10 +63,18 @@ export default {
 html,
 body,
 #__nuxt,
-#__layout,
-#layout {
+#__layout {
     width: 100%;
     height: 100%;
+}
+#layout {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    .nuxt {
+        flex: 1;
+    }
 }
 body {
     cursor: url(https://cdn.jsdelivr.net/gh/Tomotoes/images/blog/default.cur),default;
@@ -77,6 +89,7 @@ a {
     left: 0;
     width: 100%;
     height: 70px;
+    flex-shrink: 0;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -130,5 +143,22 @@ a {
 }
 .header:hover {
     background: #fff;
+}
+.nuxt {
+    margin-top: 70px;
+}
+.footer {
+    width: 100%;
+    height: 140px;
+    flex-shrink: 0;
+    text-align: center;
+    .year {
+        line-height: 30px;
+        text-align: center;
+    }
+    .copyright {
+        line-height: 50px;
+        color: #b9b9b9;
+    }
 }
 </style>

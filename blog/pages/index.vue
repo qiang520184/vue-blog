@@ -4,16 +4,25 @@
             <v-banner :data="bannerData" />
         </div>
         <div class="article">
-            <div class="article-list">
+            <div 
+                class="article-list"
+                v-for="(item, index) in ArticleData" 
+                :key="index"
+                @click="to(item.classifyPath)"
+            >
                 <div class="article-list-left">
-                    <img v-lazy="'https://cdn.jsdelivr.net/gh/qiang520184/cdn@1.4.1/md-img/javascript.png'" alt="">
+                    <img :src="item.img" alt="">
                 </div>
                 <div class="article-list-right">
                     <div class="article-list-date">
-                        2019-6-21 16:06
+                        {{item.time}}
                     </div>
-                    <a href="#" class="article-list-title">js闭包</a>
-                    <a href="#" class="article-list-classify">技术</a>
+                    <div class="article-list-title">
+                        <a :href="item.path" >{{item.title}}</a>
+                    </div>
+                    <div class="article-list-classify">
+                        <a :href="item.classifyPath" >{{item.typeName}}</a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -22,11 +31,12 @@
 
 <script>
 import vBanner from 'components/banner';
-import {Banner} from 'config';
+import {Banner, ArticleList} from 'config';
 export default {
     data() {
         return {
-            bannerData: [...Banner]
+            bannerData: [...Banner],
+            ArticleData: [...ArticleList]
         };
     },
     components: {
@@ -41,6 +51,9 @@ export default {
         },
         oncontextmenu(e) {
             console.log(e);
+        },
+        to(path) {
+            this.$router.push(path);
         }
     }
 };
@@ -57,7 +70,7 @@ export default {
 }
 .home {
     width: 100%;
-    height: 100%;
+    height: auto;
     position: relative;
     // display: flex;
     // flex-direction: column;
@@ -69,22 +82,23 @@ export default {
     }
     .banner {
         width: 100%;
-        height: 100%;
+        height: 969px;
         overflow: hidden;
     }
     .article {
         width: auto;
         height: 100%;
         &-list {
-            width: 1000px;
+            width: 850px;
             height: 225px;
+            display: block;
             padding: 20px 50px;
             clear:both;
             margin: 20px auto;
             box-shadow: 0 1px 20px -6px rgba(0, 0, 0, .5);
             border-radius: 10px;
             &-left {
-                width: 550px;
+                width: 500px;
                 height: 100%;
                 display: flex;
                 align-items: center;
@@ -108,8 +122,8 @@ export default {
                     line-height: 50px;
                     display: block;
                 }
-                .article-list-title:hover,
-                .article-list-classify:hover {
+                .article-list-title a:hover,
+                .article-list-classify a:hover {
                     color: #ffa500;
                 }
                 .article-list-classify {

@@ -34,6 +34,49 @@ export const Banner = [
         img: `${CDN}/images/cover/6.jpg`
     }
 ];
+// 首页列表
+export const ArticleList = [
+    {
+        img: 'https://cdn.jsdelivr.net/gh/qiang520184/cdn@1.4.1/md-img/javascript.png',
+        title: 'js中全等和等于技术',
+        id: '1',
+        time: '2019-6-9 13:06',
+        type: 'archives',
+        typeName: '技术',
+        classifyPath: '/archives/skill',
+        path: '/'
+    },
+    {
+        img: 'https://cdn.jsdelivr.net/gh/qiang520184/cdn@1.4.1/md-img/javascript.png',
+        title: '生活生活js中全等和等于',
+        id: '1',
+        time: '2019-6-9 13:06',
+        type: 'archives',
+        typeName: '生活',
+        classifyPath: '/archives/live',
+        path: '/'
+    },
+    {
+        img: 'https://cdn.jsdelivr.net/gh/qiang520184/cdn@1.4.1/md-img/javascript.png',
+        title: 'j随想随想',
+        id: '1',
+        time: '2019-6-9 13:06',
+        type: 'caprice',
+        typeName: '随想',
+        classifyPath: '/archives/caprice',
+        path: '/'
+    },
+    {
+        img: 'https://cdn.jsdelivr.net/gh/qiang520184/cdn@1.4.1/md-img/javascript.png',
+        title: 'js中全等和等于',
+        id: '1',
+        time: '2019-6-9 13:06',
+        type: '/resource',
+        typeName: '转载',
+        classifyPath: '/archives/resource',
+        path: '/'
+    }
+];
 export const FocusInfo = [
     {
         title: `If you haven't found it yet, keep looking and don't settle${''}`,

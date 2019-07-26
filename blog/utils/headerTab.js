@@ -5,11 +5,6 @@ export const CARALOG = [
         icon: ''
     },
     {
-        title: 'mk',
-        path: '/mk',
-        icon: ''
-    },
-    {
         title: '归档',
         icon: '',
         children: [

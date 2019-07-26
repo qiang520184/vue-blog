@@ -5,7 +5,7 @@
         <div class="mask" slot="mask">
             <div class="focusInfo-top">
                 <a href="/" >
-                    <img v-lazy="`${info.cdn}${info.logo}`">
+                    <img :src="`${info.cdn}${info.logo}`">
                 </a>
             </div>
             <div class="focusInfo">
@@ -19,13 +19,13 @@
                     >
                         
                         <template v-if="item.type ==='hover'">
-                            <img v-lazy="item.img" class="hoverImg" :alt="info.imgAlt">
+                            <img :src="item.img" class="hoverImg" :alt="info.imgAlt">
                             <div class="focusInfo-list-hover-img">
-                                <img v-lazy="item.hoverImg" :alt="info.imgAlt">
+                                <img :src="item.hoverImg" :alt="info.imgAlt">
                             </div>
                         </template>
                         <template v-else>
-                            <img v-lazy="item.img" :alt="info.imgAlt">
+                            <img :src="item.img" :alt="info.imgAlt">
                         </template>
                     </li>
                 </ul>
