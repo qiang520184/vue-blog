@@ -43,6 +43,8 @@ export default {
     width: 100%;
     height: 100%;
     display: flex;
+    position: relative;
+    z-index: 999;
     .navMenu-item {
         flex: 1;
         display: flex;
@@ -71,11 +73,14 @@ export default {
             border-radius: 12px;
             box-shadow: 0 1px 40px -10px rgba(0,0,0,.5);
             background: #fff;
+            z-index: 999;
             .submenu-item {
                 width: 100%;
                 height: 50px;
                 display: flex;
                 align-items: center;
+                position: relative;
+                z-index: 999;
                 .submenu-icon {
                     margin-left: 18px;
                     margin-right: 4px;

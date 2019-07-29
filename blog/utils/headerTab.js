@@ -6,6 +6,7 @@ export const CARALOG = [
     },
     {
         title: '归档',
+        path: '/archives',
         icon: '',
         children: [
             {

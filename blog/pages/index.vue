@@ -92,9 +92,9 @@ export default {
             width: 850px;
             height: 225px;
             display: block;
-            padding: 20px 50px;
+            padding: 0 50px;
             clear:both;
-            margin: 20px auto;
+            margin: 28px auto;
             box-shadow: 0 1px 20px -6px rgba(0, 0, 0, .5);
             border-radius: 10px;
             &-left {
@@ -104,8 +104,8 @@ export default {
                 align-items: center;
                 justify-content: center;
                 img {
-                    width: 400px;
-                    height: 225px;
+                    width: 325px;
+                    height: 200px;
                     display: flex;
                     object-fit: cover;
                 }

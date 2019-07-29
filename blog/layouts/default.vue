@@ -69,7 +69,7 @@ body,
 }
 #layout {
     width: 100%;
-    height: auto;
+    min-height: 100%;
     display: flex;
     flex-direction: column;
     .nuxt {
@@ -144,8 +144,14 @@ a {
 .header:hover {
     background: #fff;
 }
-.nuxt {
-    margin-top: 70px;
+// .nuxt {
+//     min-height: 100%;
+// }
+.container {
+    width: 920px;
+    height: 100%;
+    padding: 0 40px;
+    margin: 70px auto 0;
 }
 .footer {
     width: 100%;

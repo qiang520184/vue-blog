@@ -1,15 +1,15 @@
 <template>
-<div class="container">
+<div class="live">
     <no-ssr>
         <mavon-editor :toolbars="markdownOption" v-model="handbook"/>
-        </no-ssr>
+    </no-ssr>
 </div>
 </template>
 
 <script>
 
 export default {
-    name:'admin',
+    name: 'admin',
     data() {
         return {
             markdownOption: {
@@ -50,5 +50,9 @@ export default {
 </script>
 
 <style>
-
+.live {
+    margin-top: 70px;
+    position: relative;
+    z-index: 9;
+}
 </style>

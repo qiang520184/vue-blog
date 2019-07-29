@@ -146,9 +146,9 @@ export default {
     padding-right: 5px; //   background: red;
 }
 
-.home .container {
-    background: #fff;
-}
+// .home .container {
+//     background: #fff;
+// }
 
 .input {
     width: 500px;
