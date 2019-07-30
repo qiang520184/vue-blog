@@ -1,12 +1,15 @@
 ---
-title: js中全等和等于
-categories: 技术
-comments: true
-date: 2019-06-17 11:51:32
-tags:
-keywords:
-description:
+<header>
+title: js中全等和等于,
+categories: 技术,
+path: /archives/skill,
+comments: true,
+date: 2019-06-17 11:51:32,
+tags: ,
+keywords: ,
+description: ,
 photos: javascript
+</header>
 ---
 
 ### js中的比较等于和全等

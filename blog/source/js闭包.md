@@ -1,12 +1,15 @@
 ---
-title: js闭包
-categories: 技术
-comments: true
-date: 2019-06-21 16:43:17
-tags:
-keywords:
-description:
+<header>
+title: js闭包,
+categories: 技术,
+path: /archives/skill,
+comments: true,
+date: 2019-06-21 16:43:17,
+tags: ,
+keywords: ,
+description: ,
 photos: javascript
+</header>
 ---
 
 ### 闭包

@@ -1,12 +1,15 @@
 ---
-title: 翻墙YouTube看不停
-categories: 技术
-comments: true
-photos: google
-date: 2019-04-20 13:33:57
-tags:
-keywords:
-description:
+<header>
+title: 翻墙YouTube看不停,
+categories: 技术,
+path: /archives/skill,
+comments: true,
+photos: google,
+date: 2019-04-20 13:33:57,
+tags: ,
+keywords: ,
+description: 
+</header>
 ---
 
 <!-- [TOC] -->

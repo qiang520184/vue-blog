@@ -1,12 +1,15 @@
 ---
-title: Vue指令
-categories: 技术
-comments: true
-photos: vue
-date: 2019-04-08 22:16:33
-tags: 
-keywords: 
+<header>
+title: vue指令,
+categories: 技术,
+path: /archives/skill,
+comments: true,
+photos: vue,
+date: 2019-04-08 22:16:33,
+tags: ,
+keywords: ,
 description: 
+</header>
 ---
 
 ## Vue 指令

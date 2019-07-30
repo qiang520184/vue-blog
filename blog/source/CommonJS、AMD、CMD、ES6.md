@@ -1,14 +1,16 @@
 ---
-title: CommonJS、AMD、CMD、ES6
-categories: 技术
-comments: true
-photos: javascript
-abbrlink: 1425061816
-date: 2019-04-08 19:47:28
-avatar:
-tags:
-keywords:
-description:
+<header>
+title: CommonJS、AMD、CMD、ES6,
+categories: 技术,
+path: /archives/skill,
+comments: true,
+photos: javascript,
+date: 2019-04-08 19:47:28,
+avatar: ,
+tags: ,
+keywords: ,
+description: 
+</header>
 ---
 
 <!-- ![](https://user-gold-cdn.xitu.io/2018/12/16/167b650e8d1fcc23?imageView2/0/w/1280/h/960/format/webp/ignore-error/1)  -->

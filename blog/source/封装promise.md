@@ -1,13 +1,15 @@
 ---
-title: 封装promise
-author: 強い
-categories: 技术
-comments: true
-date: 2019-05-29 21:26:58
-tags:
-keywords:
-description:
-photos: javascript
+<header>
+title: 封装promise,
+categories: 技术,
+path: /archives/skill,
+comments: true,
+date: 2019-05-29 21:26:58,
+tags: ,
+keywords: ,
+photos: javascript,
+description: 
+</header>
 ---
 
 ### 分析一下promise吧

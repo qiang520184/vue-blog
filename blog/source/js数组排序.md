@@ -1,12 +1,15 @@
 ---
-title: js数组排序
-categories: 技术
-comments: true
-date: 2019-06-02 13:33:37
-tags:
-keywords:
-description:
+<header>
+title: js数组排序,
+categories: 技术,
+path: /archives/skill,
+comments: true,
+date: 2019-06-02 13:33:37,
+tags: ,
+keywords: ,
+description: ,
 photos: javascript
+</header>
 ---
 
 ### <font color="red">sort排序</font>

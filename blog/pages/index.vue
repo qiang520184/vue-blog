@@ -8,39 +8,57 @@
                 class="article-list"
                 v-for="(item, index) in ArticleData" 
                 :key="index"
-                @click="to(item.classifyPath)"
+                @click="to(`${item.path}/${item.title}`)"
             >
                 <div class="article-list-left">
-                    <img :src="item.img" alt="">
+                    <img v-lazy="`${info.cdn}/md-img/${item.photos}.png`" alt="">
                 </div>
                 <div class="article-list-right">
                     <div class="article-list-date">
-                        {{item.time}}
+                        {{item.date | fromateDate}}
                     </div>
                     <div class="article-list-title">
-                        <a :href="item.path" >{{item.title}}</a>
+                        <a :href="`${item.path}/${item.title}`" >{{item.title}}</a>
                     </div>
                     <div class="article-list-classify">
-                        <a :href="item.classifyPath" >{{item.typeName}}</a>
+                        <a :href="item.classifyPath" >{{item.categories}}</a>
                     </div>
                 </div>
             </div>
         </div>
+        <v-pagination
+        ></v-pagination>
     </div>
 </template>
 
 <script>
 import vBanner from 'components/banner';
-import {Banner, ArticleList} from 'config';
+import vPagination from 'components/pagination';
+import {Banner, ArticleList, defaultInfo} from 'config';
 export default {
     data() {
         return {
             bannerData: [...Banner],
-            ArticleData: [...ArticleList]
+            ArticleData: [...ArticleList],
+            info: {...defaultInfo},
+            // 总条目数
+            total: ArticleList.length * 6,
+            // 每页显示个数
+            pageSizes: 8,
+            // 默认显示第几页
+            pagerCount: 1,
+            // 只有一页时是否隐藏
+            hideOnSinglePage: true
         };
     },
     components: {
-        vBanner
+        vBanner,
+        vPagination
+    },
+    filters: {
+        fromateDate(val) {
+            return new Date(val).toLocaleString();         
+        }
     },
     methods: {
         change(e) {
@@ -72,13 +90,9 @@ export default {
     width: 100%;
     height: auto;
     position: relative;
-    // display: flex;
-    // flex-direction: column;
     .container {
-        // flex: 1;
         width: 100%;
         height: 100%;
-        // background: #ccc;
     }
     .banner {
         width: 100%;
@@ -92,7 +106,7 @@ export default {
             width: 850px;
             height: 225px;
             display: block;
-            padding: 0 50px;
+            padding: 0 30px;
             clear:both;
             margin: 28px auto;
             box-shadow: 0 1px 20px -6px rgba(0, 0, 0, .5);
@@ -116,10 +130,11 @@ export default {
                 .article-list-date {
                     color: #888;
                     font-size: 12px;
+                    line-height: 40px;
                 }
                 .article-list-title {
-                    height: 50px;
-                    line-height: 50px;
+                    height: 40px;
+                    line-height: 40px;
                     display: block;
                 }
                 .article-list-title a:hover,

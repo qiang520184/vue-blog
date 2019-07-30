@@ -1,12 +1,15 @@
 ---
-title: Vue组件的data为什么是函数而不是对象
-categories: 技术
-comments: true
-photos: vue
-date: 2019-05-08 11:08:53
-tags:
-keywords:
+<header>
+title: vue组件的data为什么是函数而不是对象,
+categories: 技术,
+path: /archives/skill,
+comments: true,
+photos: vue,
+date: 2019-05-08 11:08:53,
+tags: ,
+keywords: ,
 description: Vue组件中为什么data是一个函数，为什么根实例的data是一个对象呢
+</header>
 ---
 
 ## Vue组件中为什么data是一个函数

@@ -7,29 +7,33 @@
 </div>
 </template>
 <script>
-import testMd from './Vue组件开发props验证.md';
 export default {
     data() {
         return {
         };
     },
     computed: {
+        testMd() {
+            let md = require(`../../source/${this.$route.params.id}.md`);
+            return md.default;
+        },
         info() {
             let obj = {};
-            let infoStr = testMd.slice(testMd.indexOf('<pre><code>'), testMd.indexOf('</code></pre>')).slice(11);
+            let infoStr = this.testMd.slice(this.testMd.indexOf('<header>') + 8, this.testMd.indexOf('</header>'));
             let arrDate = infoStr.replace(/\s/g, '').split(',');
             arrDate && arrDate.length && arrDate.forEach(item => {
                 let arr = item.split(':');
-                obj[arr[0]] = arr[1].trim();
+                obj[arr[0]] = arr[1] && arr[1].trim();
             });
             return obj;
         },
         mdData() {
-            let data = testMd && testMd.slice(testMd.indexOf('</code></pre>')).slice(18);
+            let data = this.testMd && this.testMd.slice(this.testMd.indexOf('</header>') + 13);
             return data;
         }
     },
     mounted() {
+        // console.log(this.testMd, this.info);
     }
 };
 </script>

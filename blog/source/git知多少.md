@@ -1,12 +1,15 @@
 ---
-title: git知多少？
-categories: 技术
-comments: true
-date: 2019-05-29 18:02:54
-tags:
-keywords:
-description:
+<header>
+title: git知多少,
+categories: 技术,
+path: /archives/skill,
+comments: true,
+date: 2019-05-29 18:02:54,
+tags: ,
+keywords: ,
+description: ,
 photos: git
+</header>
 ---
 
 ## git

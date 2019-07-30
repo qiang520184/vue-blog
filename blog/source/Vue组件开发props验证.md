@@ -1,12 +1,15 @@
 ---
-title: Vue组件开发props验证
-categories: 技术
-comments: true
-photos: vue
-date: 2019-05-08 14:51:53
-tags:
-keywords:
-description:
+<header>
+title: vue组件开发props验证,
+categories: 技术,
+path: /archives/skill,
+comments: true,
+photos: vue,
+date: 2019-05-08 14:51:53,
+tags: ,
+keywords: ,
+description: 
+</header>
 ---
 
 #### props为啥要验证一下

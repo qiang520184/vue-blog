@@ -1,12 +1,15 @@
 ---
-title: 'Vue.sync修饰符'
-categories: 技术
-comments: true
-photos: vue
-date: 2019-05-28 15:49:14
-tags:
-keywords:
-description:
+<header>
+title: vue.sync修饰符,
+categories: 技术,
+path: /archives/skill,
+comments: true,
+photos: vue,
+date: 2019-05-28 15:49:14,
+tags: ,
+keywords: ,
+description: 
+</header>
 ---
 
 一个小demo 父组件通过 isShow 来控制子组件的显示隐藏

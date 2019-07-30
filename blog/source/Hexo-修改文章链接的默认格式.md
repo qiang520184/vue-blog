@@ -1,12 +1,15 @@
 ---
-title: Hexo-修改文章链接的默认格式
-categories: 技术
-comments: true
-photos: javascript
-date: 2019-05-08 14:40:19
-tags:
-keywords:
-description:
+<header>
+title: Hexo-修改文章链接的默认格式,
+categories: 技术,
+path: /archives/skill,
+comments: true,
+photos: javascript,
+date: 2019-05-08 14:40:19,
+tags: ,
+keywords: ,
+description: 
+</header>
 ---
 
 Hexo的永久链接的默认格式是 `:year/:month/:day/:title/`，比如访问站点下某一篇文章时，其路径是 `2018/04/12/xxxx/`，如果我们的文章标题是中文的，那么该路径就会出现中文字符。在路径中出现了中文字符很容易引发各种问题，而且也不利于seo，因为路径包含了年月日三个层级，层级太深不利于百度蜘蛛抓取。

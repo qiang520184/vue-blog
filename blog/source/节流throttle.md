@@ -1,12 +1,15 @@
 ---
-title: 节流throttle
-categories: 技术
-comments: true
-photos: javascript
-date: 2019-04-20 18:31:40
-tags:
-keywords:
-description:
+<header>
+title: 节流throttle,
+categories: 技术,
+path: /archives/skill,
+comments: true,
+photos: javascript,
+date: 2019-04-20 18:31:40,
+tags: ,
+keywords: ,
+description: 
+</header>
 ---
 
 ```js

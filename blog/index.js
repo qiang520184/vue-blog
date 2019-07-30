@@ -1,8 +1,14 @@
 const fs = require('fs');
 const path = require('path');
-const configPath = './config/haha.js';
+const ArticleListFile = './config/ArticleList.json';
+const ArticleFile = './config/Article.js';
+
 let mdData = {
-    '技术': {}
+    '技术': {},
+    '生活': {},
+    '资源': {},
+    '随想': {},
+    '转载': {}
 };
 let ArticleList = [];
 let mdPath = './source';
@@ -28,10 +34,27 @@ data && data.length && data.forEach(item => {
         case '技术':
             mdData['技术'][obj.date] = obj;
             break;
+        case '生活':
+            mdData['生活'][obj.date] = obj;
+            break;
+        case '资源':
+            mdData['资源'][obj.date] = obj;
+            break;
+        case '随想':
+            mdData['随想'][obj.date] = obj;
+            break;
+        default:
+            mdData['转载'][obj.date] = obj;
+            break;
     }
 });
-console.log(ArticleList);
-fs.writeFile(configPath, JSON.stringify(ArticleList.sort((a, b) => a.date < b.date), null, '\t'), 'utf8', (err => {
+let ArticleSort = ArticleList.sort((a, b) => a.date < b.date ? 1 : -1);
+fs.writeFile(ArticleListFile, JSON.stringify(ArticleSort, null, '\t'), 'utf8', (err => {
+    if (err) {
+        console.log(err);
+    }
+}));
+fs.writeFile(ArticleFile, JSON.stringify(mdData, null, '\t'), 'utf8', (err => {
     if (err) {
         console.log(err);
     }

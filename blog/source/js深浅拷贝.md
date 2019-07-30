@@ -1,12 +1,15 @@
 ---
-title: js深浅拷贝
-categories: 技术
-comments: true
-photos: javascript
-date: 2019-04-16 11:57:16
-tags:
-keywords:
-description:
+<header>
+title: js深浅拷贝,
+categories: 技术,
+path: /archives/skill,
+comments: true,
+photos: javascript,
+date: 2019-04-16 11:57:16,
+tags: ,
+keywords: ,
+description: 
+</header>
 ---
 
 ## 扩展运算符

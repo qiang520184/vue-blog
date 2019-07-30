@@ -158,9 +158,6 @@ export default {
 </script>
 
 <style lang="less" scoped>
-// .archives {
-//     height: 100%;
-// }
 .time-line {
     height: auto;
     width: 700px;
