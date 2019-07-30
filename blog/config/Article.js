@@ -45,17 +45,6 @@
 			"description": "",
 			"photos": "git"
 		},
-		"1539000180000": {
-			"title": "js数组去重",
-			"categories": "技术",
-			"path": "/archives/skill",
-			"comments": "true",
-			"photos": "javascript",
-			"date": 1539000180000,
-			"tags": "",
-			"keywords": "",
-			"description": ""
-		},
 		"1560743463000": {
 			"title": "js中全等和等于",
 			"categories": "技术",
@@ -88,6 +77,17 @@
 			"keywords": "",
 			"description": "",
 			"photos": "javascript"
+		},
+		"1539000180000": {
+			"title": "js数组去重",
+			"categories": "技术",
+			"path": "/archives/skill",
+			"comments": "true",
+			"photos": "javascript",
+			"date": 1539000180000,
+			"tags": "",
+			"keywords": "",
+			"description": ""
 		},
 		"1559453583000": {
 			"title": "js数组排序",

@@ -3,17 +3,17 @@
     <div class="time-line">
         <div 
             class="time-line-list"
-            v-for="(item, index) in obj"
+            v-for="(item, keys, index) in timeLineData"
             :key="index"
         >
-            <h3 class="time-line-year">{{item.year}}年</h3>
+            <h3 class="time-line-year">{{keys}}年</h3>
             <div 
                 class="time-line-item"
-                v-for="(items, keys, ind) in item.month"
+                v-for="(items, key, ind) in item"
                 :key="ind"
             >
                 <div class="time-line-month">
-                    <span>{{keys}}</span>({{items.length}}篇文章)
+                    <span>{{key}}</span>({{items.length}}篇文章)
                 </div>
                 <ul class="time-line-wrapper">
                     <li 
@@ -21,17 +21,17 @@
                         v-for="(e, i) in items"
                         :key="i"
                     >
-                        <div class="circle" @click="show(index, 'month', keys, i, e.flag)"></div>
-                        <div class="wrapper-item-hidden" v-show="!e.flag">
-                            <span class="time">{{e.date}} {{e.time}} {{e.titme}}</span>
-                            <a href="" class="title">{{e.title}}</a>
+                        <div class="circle" @click="show(keys, key, i, e.flag)"></div>
+                        <div class="wrapper-item-hidden" v-if="!e.flag">
+                            <span class="time">{{e.month}}/{{e.day}}</span>
+                            <a :href="`${e.path}/${e.title}`" class="title">{{e.title}}</a>
                         </div>
-                        <div class="wrapper-item-show" v-show="e.flag">
+                        <div class="wrapper-item-show" v-if="e.flag">
                             <h4 class="title">{{e.title}}</h4>
                             <div class="description">
                                 {{e.description}}
                             </div>
-                            <p class="time">{{item.year}}/{{e.date}} {{e.time}}</p>
+                            <div class="time">{{new Date(e.date).toLocaleString()}}</div>
                         </div>
                     </li>
                 </ul>
@@ -43,115 +43,40 @@
 
 <script>
 import Logo from '~/components/Logo.vue';
-
+import json from 'config/ArticleList.json';
 export default {
     data() {
-        return {
-            obj: [
-                {
-                    year: '2019',
-                    month: {
-                        '1月': [
-                            {
-                                date: '1/1',
-                                time: '11:11',
-                                path: '',
-                                flag: false,
-                                title: '更新 Github 模板',
-                                description: '描述、简洁,描述、简洁'
-                            },
-                            {
-                                date: '1/2',
-                                time: '11:11',
-                                path: '',
-                                flag: false,
-                                title: 'Github 模板',
-                                description: '描述、简洁,描述、简洁'
-                            }
-                        ],
-                        '2月': [
-                            {
-                                date: '2/1',
-                                time: '12:12',
-                                path: '',
-                                flag: false,
-                                title: '更新 Github 模板',
-                                description: '描述、简洁,描述、简洁'
-                            },
-                            {
-                                date: '2/2',
-                                time: '12:12',
-                                path: '',
-                                flag: false,
-                                title: 'Github 模板',
-                                description: '描述、简洁,描述、简洁'
-                            },
-                            {
-                                date: '3/1',
-                                time: '12:12',
-                                path: '',
-                                flag: false,
-                                title: '更新 Github 模板',
-                                description: '描述、简洁,描述、简洁'
-                            },
-                            {
-                                date: '4/2',
-                                time: '12:12',
-                                path: '',
-                                flag: false,
-                                title: 'Github 模板',
-                                description: '描述、简洁,描述、简洁'
-                            }
-                        ]
-                    }
-                },
-                {
-                    year: '2018',
-                    month: {
-                        '11月': [
-                            {
-                                date: '11/1',
-                                time: '11:11',
-                                path: '',
-                                flag: false,
-                                title: '更新 Github 模板',
-                                description: '描述、简洁,描述、简洁'
-                            },
-                            {
-                                date: '11/2',
-                                time: '11:11',
-                                path: '',
-                                flag: false,
-                                title: 'Github 模板',
-                                description: '描述、简洁,描述、简洁'
-                            }
-                        ],
-                        '12月': [
-                            {
-                                date: '12/1',
-                                time: '12:12',
-                                path: '',
-                                flag: false,
-                                title: '更新 Github 模板',
-                                description: '描述、简洁,描述、简洁'
-                            },
-                            {
-                                date: '12/2',
-                                time: '12:12',
-                                path: '',
-                                flag: false,
-                                title: 'Github 模板',
-                                description: '描述、简洁,描述、简洁'
-                            }
-                        ]
-                    }
-                }
-            ]
+        return { 
         };
     },
+    computed: {
+        timeLineData() {
+            let obj = {};
+            json.forEach(item => {
+                let date = new Date(item.date).toLocaleString();
+                let dateArray = date.split('/');
+                item.year = dateArray && dateArray[0];
+                item.month = dateArray && dateArray[1];
+                item.flag = false;
+                item.day = dateArray && dateArray[2];
+                if (!obj.hasOwnProperty(item.year)) {
+                    obj[item.year] = {};
+                }
+                if (!obj[item.year].hasOwnProperty(item.month)) {
+                    obj[item.year][item.month] = [];
+                }
+                obj[item.year][item.month].push({...item});
+            });
+            return obj;
+        }
+    },
+    mounted() {
+        console.log(this.timeLineData);
+    },
     methods: {
-        show(index, month, keys, i, flag) {
-            this.$set(this.obj[index][month][keys][i], 'flag', !flag);
+        show(index, keys, i, flag) {
+            console.log(this.timeLineData[index][keys][i]);
+            // this.$set(this.timeLineData[index][keys][i], 'flag', !flag);
         }
     }
 };

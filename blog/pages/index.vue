@@ -11,7 +11,7 @@
                 @click="to(`${item.path}/${item.title}`)"
             >
                 <div class="article-list-left">
-                    <img v-lazy="`${info.cdn}/md-img/${item.photos}.png`" alt="">
+                    <img v-lazy="item.photos && `${info.cdn}/md-img/${item.photos}.png`" alt="">
                 </div>
                 <div class="article-list-right">
                     <div class="article-list-date">

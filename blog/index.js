@@ -48,7 +48,7 @@ data && data.length && data.forEach(item => {
             break;
     }
 });
-let ArticleSort = ArticleList.sort((a, b) => a.date < b.date ? 1 : -1);
+let ArticleSort = ArticleList.sort((a, b) => a.date > b.date ? 1 : -1);
 fs.writeFile(ArticleListFile, JSON.stringify(ArticleSort, null, '\t'), 'utf8', (err => {
     if (err) {
         console.log(err);

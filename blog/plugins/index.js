@@ -3,9 +3,9 @@ import VueLazyload from 'vue-lazyload';
 
 Vue.use(VueLazyload,
     {
-        preLoad: 1.3,
+        preLoad: 1.5,
         error: '/404.png',
         loading: '/404.png',
-        attempt: 1
+        attempt: 2
     }
 );
