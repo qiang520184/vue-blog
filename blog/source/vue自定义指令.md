@@ -2,7 +2,7 @@
 <header>
 title: vue自定义指令,
 categories: 技术,
-path: /archives/skill,
+path: /archives,
 comments: true,
 date: 2019-06-09 13:52:01,
 tags: ,

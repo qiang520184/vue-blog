@@ -2,7 +2,7 @@
 <header>
 title: vue.filter自定义过滤器,
 categories: 技术,
-path: /archives/skill,
+path: /archives,
 comments: true,
 photos: vue,
 date: 2019-06-08 15:10:03,

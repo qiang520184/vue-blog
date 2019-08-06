@@ -1,29 +1,82 @@
 <template>
     <div id="layout">
-        <header class="header">
-            <div class="header-left">
-                <div class="logolink">
-                    <a href="/">
-                        <span v-for="(item, index) in logolink" :key="index">{{item.title}}</span>
-                    </a>
+        <div class="pc">
+            <header class="header" @mouseleave="leave">
+                <div class="header-left" v-show="!menu">
+                    <div class="logolink">
+                        <a href="/">
+                            <span v-for="(item, index) in logolink" :key="index">{{item.title}}</span>
+                        </a>
+                    </div>
+                </div>
+                <div v-show="menu" class="header-content">
+                    <nav-menu :date="headerDate"></nav-menu>
+                </div>
+                <div class="header-right">
+                    <div v-show="!searchInput" class="ipad-header-right-icon">
+                        <i :class="menu ? 'el-icon-close' : 'el-icon-menu'" @click="show('menu')"></i>
+                        <i class="el-icon-search" @click="show('search')"></i>
+                    </div>
+                    <div v-show="searchInput" class="header-right-search">
+                        <v-input
+                            v-model="input" 
+                            placeholder="请输入搜索内容"
+                            :clear="true" />
+                    </div>
+                </div>
+            </header>
+            <nuxt class="nuxt"/>
+            <footer class="footer">
+                <p class="year">© 2018</p>
+                <p class="copyright">Theme Sakura  by Mashiro&qiang, Powered by Hexo, Hosted by Coding Pages</p>
+            </footer>
+        </div>
+        <div class="iphone">
+            <div class="iphone-left" v-show="iphoneLeft">
+                <div class="iphone-left-content">
+                    <div class="focusInfo-top">
+                        <a href="/" >
+                            <img v-lazy="`${info.cdn}${info.logo}`">
+                        </a>
+                    </div>
+                    <div class="logolink">
+                        <a href="/">
+                            <span v-for="(item, index) in logolink" :key="index">{{item.title}}</span>
+                        </a>
+                    </div>
+                    <ul class="focusInfo-list"> 
+                        <li 
+                            v-for="(item, index) in focusInfoIcon.filter(item => item.type === '_blank')" 
+                            :key="index"
+                            class="focusInfo-list-item"
+                            @click="focusInfoList(item)"
+                        >
+                            <img class="focusInfo-list-img" v-lazy="item.img" :alt="info.imgAlt">
+                        </li>
+                    </ul>
+                    <div v-show="iphoneLeft" class="iphone-left-content">
+                        <nav-menu :date="headerDate"  direction="column" ></nav-menu>
+                    </div>
+                </div>
+                
+            </div>
+            <div class="iphone-right">
+                <div class="iphone-right-content">
+                    <div class="right-top">
+                        <i :class="iphoneLeft ? 'el-icon-close' : 'el-icon-menu'" @click="iphoneShow('menu')"></i>
+                        <i class="el-icon-search" v-show="!iphoneSearchInput" @click="iphoneShow('search')"></i>
+                        <v-input
+                            v-show="iphoneSearchInput"
+                            v-model="input"
+                            class="search"
+                            placeholder="请输入搜索内容"
+                            :clear="true" />
+
+                    </div>
+                    <!-- <nuxt class="nuxt"/> -->
                 </div>
             </div>
-            <div class="header-content">
-                <nav-menu :date="headerDate"></nav-menu>
-            </div>
-            <div class="header-right">
-                <div v-show="searchInput" class="header-right-search">
-                    <v-input  v-model="input" 
-                              placeholder="请输入搜索内容" 
-                              :clear="true" />
-                </div>
-            </div>
-        </header>
-        <nuxt class="nuxt"/>
-        <footer class="footer">
-            <p class="year">© 2018</p>
-            <p class="copyright">Theme Sakura  by Mashiro&qiang, Powered by Hexo, Hosted by Coding Pages</p>
-        </footer>
+        </div>
     </div> 
 </template>
 <script>
@@ -31,22 +84,57 @@ import NavMenu from 'components/navMenu';
 import vInput from 'components/input';
 import {CARALOG} from '../utils/headerTab';
 import {Logolink} from 'config/index';
+import {defaultInfo, FocusInfoIcon} from 'config/index';
 export default {
     data() {
         return {
             headerDate: [...CARALOG],
             input: '',
-            searchInput: true,
-            logolink: [...Logolink]
+            searchInput: false,
+            menu: false,
+            logolink: [...Logolink],
+            iphoneLeft: false,
+            iphoneSearchInput: false,
+            info: {...defaultInfo},
+            focusInfoIcon: [...FocusInfoIcon]
         };
     },
     components: {
         NavMenu,
         vInput
     },
+    mounted() {
+        console.log(this.focusInfoIcon);
+    },
     methods: {
         oncontextmenu() {
             console.log('haha');
+        },
+        show(type) {
+            if (type === 'menu') {
+                this.menu = !this.menu;
+            } else {
+                this.searchInput = !this.searchInput;
+                if (this.searchInput) {
+                    this.menu = false;
+                }
+            }
+        },
+        iphoneShow(type) {
+            if (type === 'menu') {
+                this.iphoneLeft = !this.iphoneLeft;
+            } else {
+                this.iphoneSearchInput = !this.iphoneSearchInput;
+                if (this.iphoneSearchInput) {
+                    this.iphoneLeft = false;
+                }
+            }
+        },
+        leave() {
+            this.iphoneSearchInput = false;
+        },
+        focusInfoList(item) {
+            window.open(item.path);
         }
     }
 };
@@ -72,6 +160,7 @@ body,
     min-height: 100%;
     display: flex;
     flex-direction: column;
+    overflow: hidden;
     .nuxt {
         flex: 1;
     }
@@ -82,7 +171,37 @@ body {
 a {
     cursor: url(https://cdn.jsdelivr.net/gh/Tomotoes/images/blog/pointer.cur),auto;
 }
-
+html {
+    font-size: 16px;
+}
+@media screen and (min-width: 375px) {
+    html {
+        /* iPhone6的375px尺寸作为16px基准，414px正好18px大小, 600 20px */
+        // font-size: calc(100% + 2 * (100vw - 375px) / 39);
+        font-size: calc(16px + 2 * (100vw - 375px) / 39);
+    }
+}
+@media screen and (min-width: 414px) {
+    html {
+        /* 414px-1000px每100像素宽字体增加1px(18px-22px) */
+        // font-size: calc(112.5% + 4 * (100vw - 414px) / 586);
+        font-size: calc(18px + 4 * (100vw - 414px) / 586);
+    }
+}
+@media screen and (min-width: 600px) {
+    html {
+        /* 600px-1000px每100像素宽字体增加1px(20px-24px) */
+        // font-size: calc(125% + 4 * (100vw - 600px) / 400);
+        font-size: calc(20px + 4 * (100vw - 600px) / 400);
+    }
+}
+@media screen and (min-width: 1000px) {
+    html {
+        /* 1000px往后是每100像素0.5px增加 */
+        // font-size: calc(137.5% + 6 * (100vw - 1000px) / 1000);
+        font-size: calc(22px + 6 * (100vw - 1000px) / 1000);
+    }
+}
 .header {
     position: absolute;
     top: 0;
@@ -96,7 +215,6 @@ a {
     z-index: 9;
     &-left {
         flex: 2;
-        min-width: 150px;
         height: 100%;
         display: flex;
         align-items: center;
@@ -107,7 +225,7 @@ a {
                 font-size: 24px;
             }
             span:first-child {
-                background-color: rgba(255,255,255,.5);
+                background-color: rgba(255, 255, 255, .5);
                 border-radius: 6px;
                 margin-right: 5px;
             }
@@ -115,19 +233,20 @@ a {
     }
     &-content {
         flex: 6;
-        min-width: 900px;
         height: 100%;
         margin: 0 auto;
     }
     &-right {
         flex: 2;
         flex-shrink: 0;
-        min-width: 150px;
         height: 100%;
         position: relative;
         display: flex;
         align-items: center;
         justify-content: flex-end;
+        .ipad-header-right-icon {
+            display: none;
+        }
         &-search {
             padding: 0 40px;
             width: 100%;
@@ -144,9 +263,6 @@ a {
 .header:hover {
     background: #fff;
 }
-// .nuxt {
-//     min-height: 100%;
-// }
 .container {
     width: 920px;
     height: 100%;
@@ -166,5 +282,121 @@ a {
         line-height: 50px;
         color: #b9b9b9;
     }
+}
+@media only screen and (min-width : 375px) and (max-width: 768px) {
+    #layout {
+        width: 100%;
+        height: 100%;
+    }
+    .pc {
+        display: none;
+    }
+    .iphone {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        overflow: hidden;
+        &-left {
+            width: 60%;
+            height: 100%;
+            flex-shrink: 0;
+            overflow-y: auto;
+            &-content {
+                height: auto;
+                .focusInfo-top {
+                    height: 100px;
+                    display: flex;
+                    justify-content: center;
+                    a {
+                        display: flex;
+                        width: 90px;
+                        height: 90px;
+                        img {
+                            display: flex;
+                            width: 100%;
+                            height: 100%;
+                        }
+                    }
+                }
+                .logolink {
+                    line-height: 40px;
+                    text-align: center;
+                    color: #333;
+                    font-weight: 900;
+                    font-family: 'Ubuntu', sans-serif;
+                    letter-spacing: 1.5px;
+                }
+                .focusInfo-list {
+                    padding: 20px 0;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    &-item {
+                        width: 30px;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        .focusInfo-list-img {
+                            display: flex;
+                            width: 20px;
+                            height: 20px;
+                        }
+                    }
+                }
+            }
+        }
+        &-right {
+            width: 100%;
+            height: 100%;
+            flex-shrink: 0;
+            overflow-y: auto;
+            &-content {
+                height: auto;
+                overflow-y: auto;
+                .right-top {
+                    height: 50px;
+                    padding: 0 20px;
+                    background: yellow;
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                    i {
+                        font-size: 24px;
+                    }
+                }
+            }
+        }
+    }
+}
+@media only screen and (min-width : 768px) and (max-width: 1024px) {
+    .iphone {
+        display: none;
+    }
+    .header {
+        &-left {
+            flex: none;
+            float: left;
+            margin-left: 20px;
+        }
+        &-content {
+            margin: 0 20px;
+        }
+        &-right {
+            flex: none;
+            width: auto;
+            margin-right: 20px;
+            .ipad-header-right-icon {
+                display: block;
+            }
+            &-search {
+                width: 250px;
+                padding: 0;
+            }
+        }
+    }
+    
+}
+@media only screen and (min-width : 1024px) {
+
 }
 </style>

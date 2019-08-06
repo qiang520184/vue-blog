@@ -2,7 +2,7 @@
 <header>
 title: VSCode之git插件显示当前commit信息,
 categories: 技术,
-path: /archives/skill,
+path: /archives,
 comments: true,
 date: 2019-06-14 14:31:04,
 tags: ,

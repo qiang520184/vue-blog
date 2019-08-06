@@ -3,38 +3,31 @@
     <div class="time-line">
         <div 
             class="time-line-list"
-            v-for="(item, keys, index) in timeLineData"
+            v-for="(item, index) in timeLineData"
             :key="index"
         >
-            <h3 class="time-line-year">{{keys}}年</h3>
+            <h3 class="time-line-year">{{item.year}}年</h3>
             <div 
                 class="time-line-item"
-                v-for="(items, key, ind) in item"
-                :key="ind"
+                v-for="(items, ind) in item.data"
+                :key="`qwe${ind}`"
             >
                 <div class="time-line-month">
-                    <span>{{key}}</span>({{items.length}}篇文章)
+                    <span>{{items.month}}月</span>({{items.data.length}}篇文章)
                 </div>
-                <ul class="time-line-wrapper">
-                    <li 
+                <div class="time-line-wrapper">
+                    <div
                         class="wrapper-item"
-                        v-for="(e, i) in items"
-                        :key="i"
+                        v-for="(e) in items.data"
+                        :key="e.date"
                     >
-                        <div class="circle" @click="show(keys, key, i, e.flag)"></div>
-                        <div class="wrapper-item-hidden" v-if="!e.flag">
+                        <div class="circle"></div>
+                        <div class="wrapper-item-hidden">
                             <span class="time">{{e.month}}/{{e.day}}</span>
                             <a :href="`${e.path}/${e.title}`" class="title">{{e.title}}</a>
                         </div>
-                        <div class="wrapper-item-show" v-if="e.flag">
-                            <h4 class="title">{{e.title}}</h4>
-                            <div class="description">
-                                {{e.description}}
-                            </div>
-                            <div class="time">{{new Date(e.date).toLocaleString()}}</div>
-                        </div>
-                    </li>
-                </ul>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -44,40 +37,21 @@
 <script>
 import Logo from '~/components/Logo.vue';
 import json from 'config/ArticleList.json';
+import {fromateJson} from 'utils/formate';
 export default {
     data() {
-        return { 
+        return {
+            timeLineData: fromateJson(json)
         };
     },
-    computed: {
-        timeLineData() {
-            let obj = {};
-            json.forEach(item => {
-                let date = new Date(item.date).toLocaleString();
-                let dateArray = date.split('/');
-                item.year = dateArray && dateArray[0];
-                item.month = dateArray && dateArray[1];
-                item.flag = false;
-                item.day = dateArray && dateArray[2];
-                if (!obj.hasOwnProperty(item.year)) {
-                    obj[item.year] = {};
-                }
-                if (!obj[item.year].hasOwnProperty(item.month)) {
-                    obj[item.year][item.month] = [];
-                }
-                obj[item.year][item.month].push({...item});
-            });
-            return obj;
-        }
-    },
     mounted() {
-        console.log(this.timeLineData);
+        // console.log(this.timeLineData);
     },
     methods: {
-        show(index, keys, i, flag) {
-            console.log(this.timeLineData[index][keys][i]);
-            // this.$set(this.timeLineData[index][keys][i], 'flag', !flag);
-        }
+        // show(index, keys, i, flag) {
+        //     console.log(this.timeLineData[index][keys][i]);
+        //     // this.$set(this.timeLineData[index][keys][i], 'flag', !flag);
+        // }
     }
 };
 </script>
@@ -135,7 +109,7 @@ export default {
                     }
                 }
                 .wrapper-item-show {
-                    width: 400px;
+                    // width: 400px;
                     overflow: hidden;
                     margin: 20px 20px 0;
                     padding: 0 20px;

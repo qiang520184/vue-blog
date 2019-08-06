@@ -2,7 +2,7 @@
 <header>
 title: js日期格式化,
 categories: 技术,
-path: /archives/skill,
+path: /archives,
 comments: true,
 photos: javascript,
 date: 2019-04-17 00:08:58,

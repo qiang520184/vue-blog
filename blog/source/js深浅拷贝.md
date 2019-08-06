@@ -2,7 +2,7 @@
 <header>
 title: js深浅拷贝,
 categories: 技术,
-path: /archives/skill,
+path: /archives,
 comments: true,
 photos: javascript,
 date: 2019-04-16 11:57:16,

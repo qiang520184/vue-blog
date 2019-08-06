@@ -2,7 +2,7 @@
 <header>
 title: 节流throttle,
 categories: 技术,
-path: /archives/skill,
+path: /archives,
 comments: true,
 photos: javascript,
 date: 2019-04-20 18:31:40,

@@ -1,6 +1,15 @@
 import path from 'path';
 export default {
   mode: 'universal',
+  router: {
+    extendRoutes (routes) {
+      routes.push({
+        name: '/archives/:id',
+        path: '/archives/:id',
+        component: path.resolve(__dirname, './pages/archives/id.vue')
+      });
+    }
+  },
   /*
    ** Headers of the page
    */
@@ -49,17 +58,30 @@ export default {
    ** Build configuration
    */
   build: {
+    // css 独立打包 link 的形式加载
+    extractCSS: {allChunks: true},
+    //sample/essays 打包的默认路径为 ‘_nuxt’ 或者可以指定cdn 域名
+    publicPath: 'https://cdn.jsdelivr.net/gh/qiang520184/cdn@1.7.1/client',
     transpile: [/^element-ui/],
+    // css 和 js  img 打包时指定文件夹
+    filenames:{
+        // app: ({ isDev }) => isDev ? '[name].js' : '[chunkhash].js',
+        // chunk: ({ isDev }) => isDev ? '[name].js' : '[chunkhash].js',
+        // css: ({ isDev }) => isDev ? '[name].js' : '[contenthash].css',
+        // img: ({ isDev }) => isDev ? '[path][name].[ext]' : '[hash:7].[ext]',
+        // font: ({ isDev }) => isDev ? '[path][name].[ext]' : 'fonts/[hash:7].[ext]',
+        // video: ({ isDev }) => isDev ? '[path][name].[ext]' : 'videos/[hash:7].[ext]'
+    },
     /*
      ** You can extend webpack config here
      */
     extend(config, ctx) {
-      config.resolve.alias['components'] = path.resolve(
-        __dirname,
-        'components'
-      );
+
+      config.resolve.alias['components'] = path.resolve(__dirname, 'components');
       config.resolve.alias['config'] = path.resolve(__dirname, 'config');
       config.resolve.alias['static'] = path.resolve(__dirname, 'static');
+      config.resolve.alias['source'] = path.resolve(__dirname, 'source');
+      config.resolve.alias['utils'] = path.resolve(__dirname, 'utils');
       config.devtool = 'source-map';
     }
   }

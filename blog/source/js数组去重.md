@@ -2,7 +2,7 @@
 <header>
 title: js数组去重,
 categories: 技术,
-path: /archives/skill,
+path: /archives,
 comments: true,
 photos: javascript,
 date: 2018-10-08 20:03:06,

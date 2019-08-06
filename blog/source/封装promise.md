@@ -2,7 +2,7 @@
 <header>
 title: 封装promise,
 categories: 技术,
-path: /archives/skill,
+path: /archives,
 comments: true,
 date: 2019-05-29 21:26:58,
 tags: ,

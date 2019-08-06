@@ -2,7 +2,7 @@
 <header>
 title: js闭包,
 categories: 技术,
-path: /archives/skill,
+path: /archives,
 comments: true,
 date: 2019-06-21 16:43:17,
 tags: ,

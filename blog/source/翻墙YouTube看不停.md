@@ -2,7 +2,7 @@
 <header>
 title: 翻墙YouTube看不停,
 categories: 技术,
-path: /archives/skill,
+path: /archives,
 comments: true,
 photos: google,
 date: 2019-04-20 13:33:57,

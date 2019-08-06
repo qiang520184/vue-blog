@@ -2,7 +2,7 @@
 <header>
 title: js常用正则验证,
 categories: 技术,
-path: /archives/skill,
+path: /archives,
 comments: true,
 date: 2019-06-13 18:05:54,
 tags: ,

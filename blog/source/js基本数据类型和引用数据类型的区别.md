@@ -2,7 +2,7 @@
 <header>
 title: js基本数据类型和引用数据类型的区别,
 categories: 技术,
-path: /archives/skill,
+path: /archives,
 comments: true,
 photos: javascript,
 date: 2019-05-07 10:45:12,
