@@ -2,7 +2,7 @@
 <header>
 title: vue.sync修饰符,
 categories: 技术,
-path: /archives/skill,
+path: /archives,
 comments: true,
 photos: vue,
 date: 2019-05-28 15:49:14,

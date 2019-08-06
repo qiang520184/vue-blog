@@ -2,7 +2,7 @@
 <header>
 title: CommonJS、AMD、CMD、ES6,
 categories: 技术,
-path: /archives/skill,
+path: /archives,
 comments: true,
 photos: javascript,
 date: 2019-04-08 19:47:28,

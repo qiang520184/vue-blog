@@ -2,7 +2,7 @@
 <header>
 title: vue组件的data为什么是函数而不是对象,
 categories: 技术,
-path: /archives/skill,
+path: /archives,
 comments: true,
 photos: vue,
 date: 2019-05-08 11:08:53,

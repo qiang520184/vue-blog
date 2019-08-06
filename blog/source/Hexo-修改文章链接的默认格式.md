@@ -2,7 +2,7 @@
 <header>
 title: Hexo-修改文章链接的默认格式,
 categories: 技术,
-path: /archives/skill,
+path: /archives,
 comments: true,
 photos: javascript,
 date: 2019-05-08 14:40:19,

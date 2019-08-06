@@ -2,7 +2,7 @@
 <header>
 title: vue指令,
 categories: 技术,
-path: /archives/skill,
+path: /archives,
 comments: true,
 photos: vue,
 date: 2019-04-08 22:16:33,

@@ -2,7 +2,7 @@
 <header>
 title: vue中将html字符串转换成html遇到的小问题,
 categories: 技术,
-path: /archives/skill,
+path: /archives,
 comments: true,
 date: 2019-05-24 20:14:55,
 tags: ,

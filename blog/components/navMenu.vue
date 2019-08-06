@@ -1,5 +1,5 @@
 <template>
-    <div class="navMenu">
+    <div :class="direction === 'column' ? 'navMenu-column' : 'navMenu'">
         <div class="navMenu-item"  v-for="(item, index) in date" :key="index">       
             <slot name="navMenu-item">
                 <div class="navMenu-item-box">
@@ -34,11 +34,70 @@ export default {
         date: {
             type: Array,
             required: true
+        },
+        direction: {
+            type: String,
+            default: 'row'
         }
     }
 };
 </script>
 <style lang="less">
+.navMenu-column {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    .navMenu-item {
+        flex: 1;
+        height: auto;
+        display: flex;
+        flex-direction: column;
+        position: relative;
+        font-size: 16px;
+        color: #606266;
+        .navMenu-item-box {
+            height: 40px;
+            display: flex;
+            align-items: center;
+            padding-left: 50px;
+            .navMenu-item-icon {
+                font-size: 16px;
+                margin-right: 4px;
+            }
+        }
+        .submenu-list {
+            height: 100%;
+            padding-left: 50px;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            .submenu-item {
+                height: 40px;
+                display: flex;
+                align-items: center;
+                margin-left: 40px;
+                .submenu-icon {
+                    font-size: 14px;
+                    margin-right: 4px;
+                    color: #9cacc5;
+                }
+                & > a,
+                & > i {
+                    color: #9cacc5;
+                    font-size: 14px;
+                }
+                .submenu-item:hover {
+                    .submenu-text,
+                    .submenu-icon i {
+                        color: #E6A23C;
+                    }
+                }
+            }
+        }
+    }
+}
 .navMenu {
     width: 100%;
     height: 100%;
@@ -61,6 +120,9 @@ export default {
                 font-size: 16px;
                 margin-right: 4px;
             }
+            // .navMenu-item-text {
+            //     flex: 1;
+            // }
         }
         .submenu-list {
             display: none;

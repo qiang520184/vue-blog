@@ -26,20 +26,21 @@
                 </div>
             </div>
         </div>
-        <v-pagination
-        ></v-pagination>
+        <!-- <v-pagination
+        ></v-pagination> -->
     </div>
 </template>
 
 <script>
-import vBanner from 'components/banner';
+import vBanner from 'components/banner/index.vue';
 import vPagination from 'components/pagination';
 import {Banner, ArticleList, defaultInfo} from 'config';
 export default {
     data() {
         return {
             bannerData: [...Banner],
-            ArticleData: [...ArticleList],
+            ArticleData: [],
+            // ArticleData: [...ArticleList],
             info: {...defaultInfo},
             // 总条目数
             total: ArticleList.length * 6,
@@ -96,7 +97,7 @@ export default {
     }
     .banner {
         width: 100%;
-        height: 969px;
+        height: auto;
         overflow: hidden;
     }
     .article {
@@ -173,5 +174,14 @@ export default {
             animation-fill-mode: forwards;
         }
     }
+}
+@media only screen and (min-width : 375px) and (max-width: 768px) {
+   
+}
+@media only screen and (min-width : 768px) and (max-width: 1024px) {
+    
+}
+@media only screen and (min-width : 1024px) {
+
 }
 </style>

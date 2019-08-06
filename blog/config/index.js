@@ -2,7 +2,7 @@
 import ArticleListFile from './ArticleList.json';
 // cdn基路径
 const WWW = 'https://www.fudaqiang.com';
-const CDN = 'https://cdn.jsdelivr.net/gh/qiang520184/cdn@1.5';
+const CDN = 'https://cdn.jsdelivr.net/gh/qiang520184/cdn@1.7.1';
 const Logo = '/images/rooon.gif';
 const ImgAlt = '付大强';
 

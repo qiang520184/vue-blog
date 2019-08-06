@@ -2,7 +2,7 @@
 <header>
 title: js中全等和等于,
 categories: 技术,
-path: /archives/skill,
+path: /archives,
 comments: true,
 date: 2019-06-17 11:51:32,
 tags: ,

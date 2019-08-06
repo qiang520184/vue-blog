@@ -1,5 +1,7 @@
 <template>
-    <div class="my-input">
+    <div class="my-input"
+        @mouseenter="mouseenter"
+        @mouseleave="mouseleave">
         <input class="input"
             autocomplete="off"
             :type="type" 
@@ -44,6 +46,14 @@ export default {
             default: () => {}
         },
         focus: {
+            type: Function,
+            default: () => {}
+        },
+        mouseenter: {
+            type: Function,
+            default: () => {}
+        },
+        mouseleave: {
             type: Function,
             default: () => {}
         },

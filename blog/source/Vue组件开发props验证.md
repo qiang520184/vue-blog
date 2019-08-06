@@ -2,7 +2,7 @@
 <header>
 title: vue组件开发props验证,
 categories: 技术,
-path: /archives/skill,
+path: /archives,
 comments: true,
 photos: vue,
 date: 2019-05-08 14:51:53,

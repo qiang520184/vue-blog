@@ -48,7 +48,7 @@ data && data.length && data.forEach(item => {
             break;
     }
 });
-let ArticleSort = ArticleList.sort((a, b) => a.date > b.date ? 1 : -1);
+let ArticleSort = ArticleList.sort((a, b) => a.date < b.date ? 1 : -1);
 fs.writeFile(ArticleListFile, JSON.stringify(ArticleSort, null, '\t'), 'utf8', (err => {
     if (err) {
         console.log(err);
@@ -59,3 +59,32 @@ fs.writeFile(ArticleFile, JSON.stringify(mdData, null, '\t'), 'utf8', (err => {
         console.log(err);
     }
 }));
+
+// let a = {
+//     [Symbol.toPrimitive]: (function(hint) {
+//         console.log(hint);
+//         let i = 1;
+//         return function() {
+//             return i++;
+//         };
+//     })
+// };
+// let i = 1;
+// let a = new Proxy({}, {
+//     i: 1,
+//     get: function() {
+//         return i++;
+//     }
+// });
+// let a = [1, 2, 3];
+// //a.join = a.shift;
+
+// if (a == 1 && a == 2 && a == 3) {
+//     console.log('hahahhahahahahah');
+// } else {
+//     console.log(a);
+// }
+
+
+
+
