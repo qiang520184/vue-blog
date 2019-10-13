@@ -1,6 +1,7 @@
 <template>
     <div class="home" @contextmenu.prevent="oncontextmenu($event)">
-        <div class="banner">
+        <!-- <h1>homes</h1> -->
+        <!-- <div class="banner">
             <v-banner :data="bannerData" />
         </div>
         <div class="article">
@@ -25,7 +26,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> -->
         <!-- <v-pagination
         ></v-pagination> -->
     </div>

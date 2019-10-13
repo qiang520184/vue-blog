@@ -7,7 +7,7 @@ var http = require('http');
 var url = require('url');
 var fs = require('fs');
 var path = require('path');
-// var cp = require('child_process');
+var cp = require('child_process');
 
 //创建服务
 var httpServer = http.createServer(processRequest);
@@ -22,7 +22,7 @@ var opt = {
 httpServer.listen(opt, function() {
     console.log(`app is running at port:${opt.port}`);
     console.log(`url: http://${opt.hostname}:${opt.port}`);
-    // cp.exec(`explorer http://localhost:${port}`, function() {});
+    // cp.exec(`open  http://localhost:${port}`, function() {});
 });
 
 //响应请求的函数

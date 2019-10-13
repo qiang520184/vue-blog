@@ -1,10 +1,7 @@
 <template>
     <div class="container">
-        <div>
-            donate
-        </div>
+        <div>donate</div>
     </div>
-</div>
 </template>
 
 <script>

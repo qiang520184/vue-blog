@@ -9,8 +9,10 @@ import '../node_modules/github-markdown-css/github-markdown.css'
 import '../node_modules/element-ui/lib/theme-chalk/index.css'
 
 import _6f6c098b from '../layouts/default.vue'
+import _7817521b from '../layouts/iphone.vue'
+import _6c337469 from '../layouts/pc.vue'
 
-const layouts = { "_default": _6f6c098b }
+const layouts = { "_default": _6f6c098b,"_iphone": _7817521b,"_pc": _6c337469 }
 
 export default {
   head: {"title":"blog","meta":[{"charset":"utf-8"},{"name":"viewport","content":"width=device-width, initial-scale=1"},{"hid":"description","name":"description","content":"My sensational Nuxt.js project"}],"link":[{"rel":"icon","type":"image\u002Fx-icon","href":"\u002Ffavicon.ico"}],"style":[],"script":[]},

@@ -45,7 +45,9 @@ export default {
     { src: '@/plugins/element-ui', ssr: false },
     { src: '@plugins/vue-markdown.js', ssr: false },
     { src: '@plugins/highlight.js'},
-    { src: '@plugins/index.js'}
+    { src: '@plugins/index.js'},
+    // { src: '@/plugins/global-components'}
+
 
   ],
   /*

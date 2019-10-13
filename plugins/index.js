@@ -1,5 +1,6 @@
 import Vue from 'vue';
 import VueLazyload from 'vue-lazyload';
+import {vInput,vNavMenu} from 'components'
 require("../utils/console.js");
 Vue.use(VueLazyload,
     {
@@ -9,3 +10,5 @@ Vue.use(VueLazyload,
         attempt: 2
     }
 );
+Vue.use(vInput);
+Vue.use(vNavMenu);
