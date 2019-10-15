@@ -72,7 +72,35 @@ export default {
             ipadSearchInput: false,
             headerDate: [...CARALOG],
             logolink: [...Logolink],
+            param: {
+                aaa: {
+                    name: '张三',
+                    age: 18,
+                    userId: '1q2w3e'
+                },
+                bbb: 12,
+                ccc: [123,'123',123,12,3],
+                ddd: '',
+                eee: '123',
+            }
         }
+    },
+    created() {
+        // this.$http.get('/api/get?id=123&user=qiang').then(res => console.log(res))
+
+        // this.$http.post({
+        //     url: '/api/post/haha/ol',
+        //     data: this.param
+        // }).then(res => console.log(res))
+
+        // this.$http.post({
+        //     url: '/api/post/haha/ol12',
+        //     data: this.param,
+        //     formData: true,
+        // }).then(res => console.log(res))
+
+
+
     },
     methods: {
         oncontextmenu() {

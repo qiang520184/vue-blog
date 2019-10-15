@@ -1,7 +1,6 @@
 <template>
-    <div class="home" @contextmenu.prevent="oncontextmenu($event)">
-        <!-- <h1>homes</h1> -->
-        <!-- <div class="banner">
+    <div class="home container" @contextmenu.prevent="oncontextmenu($event)">
+        <div class="banner">
             <v-banner :data="bannerData" />
         </div>
         <div class="article">
@@ -26,7 +25,7 @@
                     </div>
                 </div>
             </div>
-        </div> -->
+        </div>
         <!-- <v-pagination
         ></v-pagination> -->
     </div>
@@ -63,6 +62,13 @@ export default {
         }
     },
     methods: {
+        updata(e){
+            console.log(e.target.files);
+            this.$http.post({
+                url: '/api/uploadImg',
+                formData: true
+            }).then(res => console.log(res, 'upload'))
+        },
         change(e) {
             console.log(e.target.value);
         },

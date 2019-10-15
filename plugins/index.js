@@ -1,6 +1,7 @@
 import Vue from 'vue';
 import VueLazyload from 'vue-lazyload';
 import {vInput,vNavMenu} from 'components'
+import http from '../utils/http'
 require("../utils/console.js");
 Vue.use(VueLazyload,
     {
@@ -12,3 +13,4 @@ Vue.use(VueLazyload,
 );
 Vue.use(vInput);
 Vue.use(vNavMenu);
+Vue.prototype.$http = http

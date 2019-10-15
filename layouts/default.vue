@@ -1,7 +1,7 @@
 <template>
     <div id="layout">
         <Pc></Pc>
-        <Iphone></Iphone>
+        <!-- <Iphone></Iphone> -->
     </div> 
 </template>
 <script>
@@ -84,7 +84,6 @@ html {
 .container {
     width: 920px;
     height: 100%;
-    padding: 0 40px;
     margin: 70px auto 0;
 }
 .footer {
